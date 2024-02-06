@@ -12,7 +12,7 @@ import io.github.Nog022.SpringBootExpert.domain.entity.Pedido;
 import io.github.Nog022.SpringBootExpert.service.PedidoService;
 
 @RestController
-@RequestMapping("/api/pedidos")
+@RequestMapping(value = "/api/pedidos", consumes = "application/json" )
 public class PedidoController {
 	
 	private PedidoService service;
