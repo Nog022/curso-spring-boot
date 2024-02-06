@@ -1,12 +1,5 @@
 package io.github.Nog022.SpringBootExpert.service.impl;
 
-import java.time.LocalDate;
-import java.util.List;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
-
-import org.springframework.stereotype.Service;
-
 import io.github.Nog022.SpringBootExpert.apiRest.dto.ItemPedidoDTO;
 import io.github.Nog022.SpringBootExpert.apiRest.dto.PedidoDTO;
 import io.github.Nog022.SpringBootExpert.domain.entity.Cliente;
@@ -21,6 +14,11 @@ import io.github.Nog022.SpringBootExpert.exception.RegraNegocioException;
 import io.github.Nog022.SpringBootExpert.service.PedidoService;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.time.LocalDate;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -57,7 +55,6 @@ public class PedidoServiceImpl implements PedidoService{
 		}
 		
 		return items.stream().map(dto -> {
-			
 			Integer idProduto = dto.getProduto();
 			Produto produto = produtosRepository
 			.findById(idProduto)
