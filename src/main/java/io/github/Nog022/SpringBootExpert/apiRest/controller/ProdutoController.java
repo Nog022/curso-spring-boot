@@ -12,7 +12,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/produtos")
+@RequestMapping(value = "/api/produtos" , consumes = "application/json")
 public class ProdutoController {
 
 	private Produtos produtos;
