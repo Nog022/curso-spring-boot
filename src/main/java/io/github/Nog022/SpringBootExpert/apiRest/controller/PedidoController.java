@@ -23,13 +23,10 @@ public class PedidoController {
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public Integer save(@RequestBody PedidoDTO dto) {
-		try {
-			Pedido pedido =  service.salvar(dto);
-			return pedido.getId();
-		}catch (Exception e){
-			log.error("Pedidos Save " + e.getMessage());
-		}
-		return null;
+
+		Pedido pedido =  service.salvar(dto);
+		return pedido.getId();
+
 	}
 	
 }
