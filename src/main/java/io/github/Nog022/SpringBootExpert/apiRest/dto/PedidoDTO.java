@@ -12,6 +12,7 @@ package io.github.Nog022.SpringBootExpert.apiRest.dto;
 }
 */
 
+import io.github.Nog022.SpringBootExpert.validation.NotEmptyList;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,11 +25,12 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 public class PedidoDTO {
-	@NotNull(message = "Informe o código do cliente")
+	@NotNull(message = "{campo.codigo-cliente.obrigatorio}")
 	private Integer cliente;
 
-	@NotNull(message = "Informe o Total do pedido")
+	@NotNull(message = "{campo.total-pedido.obrigatorio}")
 	private BigDecimal total;
 
+	@NotEmptyList(message = "{campo.items-pedido.obrigatorio}")
 	private List<ItemPedidoDTO> itens;
 }

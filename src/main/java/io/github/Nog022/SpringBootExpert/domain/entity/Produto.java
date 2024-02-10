@@ -23,11 +23,11 @@ public class Produto {
 	private Integer id;
 
 	@Column(name = "DESCRICAO")
-	@NotEmpty(message = "Campo descrição obrigatório")
+	@NotEmpty(message = "{campo.descricao.obrigatorio}")
 	private String descricao;
 
 	@Column(name = "PRECO_UNITARIO")
-	@NotNull(message = "Preço é obrigatório")
+	@NotNull(message = "{campo.preco.obrigatorio}")
 	private BigDecimal preco;
 
 	@OneToMany(mappedBy = "produto")
