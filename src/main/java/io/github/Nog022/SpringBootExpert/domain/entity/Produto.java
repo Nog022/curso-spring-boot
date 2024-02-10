@@ -1,6 +1,8 @@
 package io.github.Nog022.SpringBootExpert.domain.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,18 +16,20 @@ import java.util.Set;
 @AllArgsConstructor
 @Data
 public class Produto {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Integer id;
-	
+
 	@Column(name = "DESCRICAO")
+	@NotEmpty(message = "Campo descrição obrigatório")
 	private String descricao;
-	
+
 	@Column(name = "PRECO_UNITARIO")
+	@NotNull(message = "Preço é obrigatório")
 	private BigDecimal preco;
-	
+
 	@OneToMany(mappedBy = "produto")
 	private Set<ItemPedido> produtoId;
 
